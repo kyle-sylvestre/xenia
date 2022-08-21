@@ -1,0 +1,17 @@
+IBM XENON CPU
+    3.2 GHz 64 bit PowerPC 
+    3 cores, 6 logical processors
+    in order execution
+    L1 direct prefetch
+    inter-core L2 direct write
+    GPU direct read memory (where is it reading?)
+
+ATI XENOS GPU
+    "main memory pool 512 MB"
+    10 MB eDRAM
+
+CHOPPING BLOCK
+    o double the size of MicroProfile drawing
+        x is there already an option for scaling this???
+    x mute still uses a sound thread, fix this 
+    x filter out sleep calls and see what's actually done
