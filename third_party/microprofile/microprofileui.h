@@ -3251,8 +3251,9 @@ void MicroProfileDraw(uint32_t nWidth, uint32_t nHeight)
 				MicroProfileStringArrayAddLiteral(&Debug, "markers [frames] ");
 
 #if MICROPROFILE_CONTEXT_SWITCH_TRACE
-				MicroProfileStringArrayAddLiteral(&Debug, "Context Switch");
-				MicroProfileStringArrayFormat(&Debug, "%9d [%7d]", S.nContextSwitchUsage, MICROPROFILE_CONTEXT_SWITCH_BUFFER_SIZE / S.nContextSwitchUsage );
+                uint32_t nSwitchUsage = (S.nContextSwitchUsage) ? MICROPROFILE_CONTEXT_SWITCH_BUFFER_SIZE : MICROPROFILE_CONTEXT_SWITCH_BUFFER_SIZE / S.nContextSwitchUsage;
+                MicroProfileStringArrayAddLiteral(&Debug, "Context Switch");
+                MicroProfileStringArrayFormat(&Debug, "%9d [%7d]", S.nContextSwitchUsage, nSwitchUsage);
 #endif
 
 				for(int i = 0; i < MICROPROFILE_MAX_THREADS; ++i)
