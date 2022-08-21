@@ -10,6 +10,10 @@
 #ifndef XENIA_UI_MICROPROFILE_DRAWER_H_
 #define XENIA_UI_MICROPROFILE_DRAWER_H_
 
+#ifndef MICROPROFILE_TEXT_SCALE 
+#define MICROPROFILE_TEXT_SCALE 2
+#endif
+
 #include <cstdint>
 #include <memory>
 #include <vector>

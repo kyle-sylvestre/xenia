@@ -209,6 +209,14 @@ void MicroprofileDrawer::Flush() {
   ImmediateDrawBatch batch;
   batch.vertices = vertices_.data();
   batch.vertex_count = vertex_count_;
+
+  // scale up this tiny ass font, match the scale in profiling.cc mouse movement
+  for (size_t i = 0; i < vertices_.size(); i++)
+  {
+      vertices_[i].x *= MICROPROFILE_TEXT_SCALE;
+      vertices_[i].y *= MICROPROFILE_TEXT_SCALE;
+  }
+
   immediate_drawer_->BeginDrawBatch(batch);
 
   ImmediateDraw draw;

@@ -173,8 +173,10 @@ void Profiler::ProfilerWindowInputListener::OnKeyUp(ui::KeyEvent& e) {
 
 #if XE_OPTION_PROFILING_UI
 
+const int MSC = MICROPROFILE_TEXT_SCALE;
+
 void Profiler::ProfilerWindowInputListener::OnMouseDown(ui::MouseEvent& e) {
-  Profiler::SetMousePosition(e.x(), e.y(), 0);
+  Profiler::SetMousePosition(e.x() / MSC , e.y() / MSC, 0);
   MicroProfileMouseButton(e.button() == ui::MouseEvent::Button::kLeft,
                           e.button() == ui::MouseEvent::Button::kRight);
   e.set_handled(true);
@@ -182,20 +184,20 @@ void Profiler::ProfilerWindowInputListener::OnMouseDown(ui::MouseEvent& e) {
 }
 
 void Profiler::ProfilerWindowInputListener::OnMouseUp(ui::MouseEvent& e) {
-  Profiler::SetMousePosition(e.x(), e.y(), 0);
+  Profiler::SetMousePosition(e.x() / MSC, e.y() / MSC, 0);
   MicroProfileMouseButton(0, 0);
   e.set_handled(true);
   PostInputEvent();
 }
 
 void Profiler::ProfilerWindowInputListener::OnMouseMove(ui::MouseEvent& e) {
-  Profiler::SetMousePosition(e.x(), e.y(), 0);
+  Profiler::SetMousePosition(e.x() / MSC, e.y() / MSC, 0);
   e.set_handled(true);
   PostInputEvent();
 }
 
 void Profiler::ProfilerWindowInputListener::OnMouseWheel(ui::MouseEvent& e) {
-  Profiler::SetMousePosition(e.x(), e.y(), e.scroll_y());
+  Profiler::SetMousePosition(e.x() / MSC, e.y() / MSC, e.scroll_y());
   e.set_handled(true);
   PostInputEvent();
 }
